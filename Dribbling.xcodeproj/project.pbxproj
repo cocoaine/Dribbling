@@ -39,11 +39,6 @@
 		BF31D2B81625193000376FB9 /* TouchThroughUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2AF1625193000376FB9 /* TouchThroughUIView.m */; };
 		BF31D2B91625193000376FB9 /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2B11625193000376FB9 /* UIView+Screenshot.m */; };
 		BF31D2BD162519B700376FB9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31D2BC162519B700376FB9 /* QuartzCore.framework */; };
-		BF31D2C116251B8000376FB9 /* DribbbleClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2C016251B8000376FB9 /* DribbbleClient.m */; };
-		BF31D2C916251D2100376FB9 /* DribbbleShot.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2C816251D2100376FB9 /* DribbbleShot.m */; };
-		BF31D2CC16251D2A00376FB9 /* DribbblePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2CB16251D2900376FB9 /* DribbblePlayer.m */; };
-		BF31D2CF16251D3700376FB9 /* DribbbleComment.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2CE16251D3600376FB9 /* DribbbleComment.m */; };
-		BF31D2D316251EB100376FB9 /* DribbbleDefaultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2D216251EB000376FB9 /* DribbbleDefaultModel.m */; };
 		BF31D2D916253BA800376FB9 /* PSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2D616253BA800376FB9 /* PSCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF31D2DA16253BA800376FB9 /* PSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2D816253BA800376FB9 /* PSCollectionViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF31D2DD16253CE900376FB9 /* DribbbleShotViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF31D2DC16253CE800376FB9 /* DribbbleShotViewCell.m */; };
@@ -130,16 +125,6 @@
 		BF31D2B11625193000376FB9 /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
 		BF31D2BC162519B700376FB9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BF31D2BE16251AB200376FB9 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
-		BF31D2BF16251B7F00376FB9 /* DribbbleClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleClient.h; sourceTree = "<group>"; };
-		BF31D2C016251B8000376FB9 /* DribbbleClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleClient.m; sourceTree = "<group>"; };
-		BF31D2C716251D2100376FB9 /* DribbbleShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleShot.h; sourceTree = "<group>"; };
-		BF31D2C816251D2100376FB9 /* DribbbleShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleShot.m; sourceTree = "<group>"; };
-		BF31D2CA16251D2900376FB9 /* DribbblePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbblePlayer.h; sourceTree = "<group>"; };
-		BF31D2CB16251D2900376FB9 /* DribbblePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbblePlayer.m; sourceTree = "<group>"; };
-		BF31D2CD16251D3600376FB9 /* DribbbleComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleComment.h; sourceTree = "<group>"; };
-		BF31D2CE16251D3600376FB9 /* DribbbleComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleComment.m; sourceTree = "<group>"; };
-		BF31D2D116251EB000376FB9 /* DribbbleDefaultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleDefaultModel.h; sourceTree = "<group>"; };
-		BF31D2D216251EB000376FB9 /* DribbbleDefaultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleDefaultModel.m; sourceTree = "<group>"; };
 		BF31D2D516253BA800376FB9 /* PSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCollectionView.h; sourceTree = "<group>"; };
 		BF31D2D616253BA800376FB9 /* PSCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCollectionView.m; sourceTree = "<group>"; };
 		BF31D2D716253BA800376FB9 /* PSCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCollectionViewCell.h; sourceTree = "<group>"; };
@@ -191,6 +176,16 @@
 		BF31D3271626714300376FB9 /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		BF31D33A162674E100376FB9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		BF31D33C162674FB00376FB9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BF52E9A41626E8BA002B6D12 /* DribbbleClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DribbbleClient.h; path = Dribbble/DribbbleClient.h; sourceTree = "<group>"; };
+		BF52E9A51626E8BA002B6D12 /* DribbbleClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DribbbleClient.m; path = Dribbble/DribbbleClient.m; sourceTree = "<group>"; };
+		BF52E9A61626E8BA002B6D12 /* DribbbleComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DribbbleComment.h; path = Dribbble/DribbbleComment.h; sourceTree = "<group>"; };
+		BF52E9A71626E8BA002B6D12 /* DribbbleComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DribbbleComment.m; path = Dribbble/DribbbleComment.m; sourceTree = "<group>"; };
+		BF52E9A81626E8BA002B6D12 /* DribbbleDefaultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DribbbleDefaultModel.h; path = Dribbble/DribbbleDefaultModel.h; sourceTree = "<group>"; };
+		BF52E9A91626E8BA002B6D12 /* DribbbleDefaultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DribbbleDefaultModel.m; path = Dribbble/DribbbleDefaultModel.m; sourceTree = "<group>"; };
+		BF52E9AA1626E8BA002B6D12 /* DribbblePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DribbblePlayer.h; path = Dribbble/DribbblePlayer.h; sourceTree = "<group>"; };
+		BF52E9AB1626E8BA002B6D12 /* DribbblePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DribbblePlayer.m; path = Dribbble/DribbblePlayer.m; sourceTree = "<group>"; };
+		BF52E9AC1626E8BA002B6D12 /* DribbbleShot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DribbbleShot.h; path = Dribbble/DribbbleShot.h; sourceTree = "<group>"; };
+		BF52E9AD1626E8BA002B6D12 /* DribbbleShot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DribbbleShot.m; path = Dribbble/DribbbleShot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,26 +351,18 @@
 		BF31D2C216251B8F00376FB9 /* Dribbble API */ = {
 			isa = PBXGroup;
 			children = (
-				BF31D2BF16251B7F00376FB9 /* DribbbleClient.h */,
-				BF31D2C016251B8000376FB9 /* DribbbleClient.m */,
-				BF31D2D016251D3B00376FB9 /* Models */,
+				BF52E9A41626E8BA002B6D12 /* DribbbleClient.h */,
+				BF52E9A51626E8BA002B6D12 /* DribbbleClient.m */,
+				BF52E9A61626E8BA002B6D12 /* DribbbleComment.h */,
+				BF52E9A71626E8BA002B6D12 /* DribbbleComment.m */,
+				BF52E9A81626E8BA002B6D12 /* DribbbleDefaultModel.h */,
+				BF52E9A91626E8BA002B6D12 /* DribbbleDefaultModel.m */,
+				BF52E9AA1626E8BA002B6D12 /* DribbblePlayer.h */,
+				BF52E9AB1626E8BA002B6D12 /* DribbblePlayer.m */,
+				BF52E9AC1626E8BA002B6D12 /* DribbbleShot.h */,
+				BF52E9AD1626E8BA002B6D12 /* DribbbleShot.m */,
 			);
 			name = "Dribbble API";
-			sourceTree = "<group>";
-		};
-		BF31D2D016251D3B00376FB9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				BF31D2D116251EB000376FB9 /* DribbbleDefaultModel.h */,
-				BF31D2D216251EB000376FB9 /* DribbbleDefaultModel.m */,
-				BF31D2C716251D2100376FB9 /* DribbbleShot.h */,
-				BF31D2C816251D2100376FB9 /* DribbbleShot.m */,
-				BF31D2CA16251D2900376FB9 /* DribbblePlayer.h */,
-				BF31D2CB16251D2900376FB9 /* DribbblePlayer.m */,
-				BF31D2CD16251D3600376FB9 /* DribbbleComment.h */,
-				BF31D2CE16251D3600376FB9 /* DribbbleComment.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		BF31D2D416253BA800376FB9 /* PSCollectionView */ = {
@@ -567,11 +554,6 @@
 				BF31D2B71625193000376FB9 /* ShadowView.m in Sources */,
 				BF31D2B81625193000376FB9 /* TouchThroughUIView.m in Sources */,
 				BF31D2B91625193000376FB9 /* UIView+Screenshot.m in Sources */,
-				BF31D2C116251B8000376FB9 /* DribbbleClient.m in Sources */,
-				BF31D2C916251D2100376FB9 /* DribbbleShot.m in Sources */,
-				BF31D2CC16251D2A00376FB9 /* DribbblePlayer.m in Sources */,
-				BF31D2CF16251D3700376FB9 /* DribbbleComment.m in Sources */,
-				BF31D2D316251EB100376FB9 /* DribbbleDefaultModel.m in Sources */,
 				BF31D2D916253BA800376FB9 /* PSCollectionView.m in Sources */,
 				BF31D2DA16253BA800376FB9 /* PSCollectionViewCell.m in Sources */,
 				BF31D2DD16253CE900376FB9 /* DribbbleShotViewCell.m in Sources */,
