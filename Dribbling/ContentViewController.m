@@ -119,6 +119,10 @@
 		return;
 	}
 	
+	if (sender != nil) {
+		[self.items removeAllObjects];
+	}
+	
 	self.loading = YES;
 	
 	[DribbbleShot cancelAllRequests];
