@@ -109,6 +109,8 @@
 	self.collectionView.scrollsToTop = YES;
 	
 	[self.items removeAllObjects];
+	self.items = nil;
+	
 	[self.collectionView reloadData];
 	
 	[self.activityIndicator startAnimating];
