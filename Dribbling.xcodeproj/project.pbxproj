@@ -65,6 +65,11 @@
 		BF31D3391626714300376FB9 /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF31D3271626714300376FB9 /* MWPhotoBrowser.bundle */; };
 		BF31D33B162674E200376FB9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31D33A162674E100376FB9 /* ImageIO.framework */; };
 		BF31D33D162674FC00376FB9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF31D33C162674FB00376FB9 /* MessageUI.framework */; };
+		BF52E9AE1626E92F002B6D12 /* DribbbleClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF52E9A51626E8BA002B6D12 /* DribbbleClient.m */; };
+		BF52E9AF1626E92F002B6D12 /* DribbbleComment.m in Sources */ = {isa = PBXBuildFile; fileRef = BF52E9A71626E8BA002B6D12 /* DribbbleComment.m */; };
+		BF52E9B01626E92F002B6D12 /* DribbbleDefaultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF52E9A91626E8BA002B6D12 /* DribbbleDefaultModel.m */; };
+		BF52E9B11626E92F002B6D12 /* DribbblePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF52E9AB1626E8BA002B6D12 /* DribbblePlayer.m */; };
+		BF52E9B21626E92F002B6D12 /* DribbbleShot.m in Sources */ = {isa = PBXBuildFile; fileRef = BF52E9AD1626E8BA002B6D12 /* DribbbleShot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -534,6 +539,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF52E9AE1626E92F002B6D12 /* DribbbleClient.m in Sources */,
+				BF52E9AF1626E92F002B6D12 /* DribbbleComment.m in Sources */,
+				BF52E9B01626E92F002B6D12 /* DribbbleDefaultModel.m in Sources */,
+				BF52E9B11626E92F002B6D12 /* DribbblePlayer.m in Sources */,
+				BF52E9B21626E92F002B6D12 /* DribbbleShot.m in Sources */,
 				BF31D261162515F900376FB9 /* main.m in Sources */,
 				BF31D265162515F900376FB9 /* AppDelegate.m in Sources */,
 				BF31D26E162515F900376FB9 /* ContentViewController.m in Sources */,
