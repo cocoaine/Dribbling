@@ -49,7 +49,14 @@
 	self.view.backgroundColor = [UIColor lightGrayColor];
 	
 	self.imageViewButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	self.imageViewButton.frame = CGRectMake(10.f, 10.f, 280.f, 280.f);
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		self.imageViewButton.frame = CGRectMake(10.f, 10.f, 580.f, 580.f);
+	}
+	else {
+		self.imageViewButton.frame = CGRectMake(10.f, 10.f, 280.f, 280.f);
+	}
+	
 	self.imageViewButton.backgroundColor = [UIColor whiteColor];
 	self.imageViewButton.layer.shadowColor = [UIColor darkGrayColor].CGColor;
 	self.imageViewButton.layer.shadowOffset = CGSizeMake(0.f, 5.f);

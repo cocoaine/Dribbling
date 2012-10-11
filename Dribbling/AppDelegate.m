@@ -35,11 +35,23 @@
 	
 	MenuViewController *menuViewController = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
 	menuViewController.delegate = self;
-	[self.viewController setLeftViewController:menuViewController width:150.f];
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		[self.viewController setLeftViewController:menuViewController width:300.f];
+	}
+	else {
+		[self.viewController setLeftViewController:menuViewController width:150.f];
+	}
 	
 	DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:nil bundle:nil];
 	detailViewController.photoDataSource = contentViewController;
-	[self.viewController setRightViewController:detailViewController width:300.f rightViewFoldCount:3 rightViewPullFactor:0.9f];
+	
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		[self.viewController setRightViewController:detailViewController width:600.f rightViewFoldCount:6 rightViewPullFactor:0.9f];
+	}
+	else {
+		[self.viewController setRightViewController:detailViewController width:300.f rightViewFoldCount:3 rightViewPullFactor:0.9f];
+	}
 	
 	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];

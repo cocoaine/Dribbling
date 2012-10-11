@@ -45,7 +45,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.items = [NSMutableArray array];
 		self.currentPage = 0;
 		self.clickedShotIndex = 0;
 		self.loading = NO;
@@ -66,8 +65,14 @@
 	self.collectionView.backgroundColor = [UIColor darkGrayColor];
 	self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	
-	self.collectionView.numColsPortrait = 2;
-	self.collectionView.numColsLandscape = 3;
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		self.collectionView.numColsPortrait = 3;
+		self.collectionView.numColsLandscape = 4;
+	}
+	else {
+		self.collectionView.numColsPortrait = 2;
+		self.collectionView.numColsLandscape = 3;
+	}
 	
 	[self.view addSubview:self.collectionView];
 	
@@ -132,15 +137,25 @@
 		self.notificationView = nil;
 	}
 	
-	self.notificationView = [AJNotificationView showNoticeInView:self.view
-															type:AJNotificationTypeBlue
-														   title:@"NOW LOADING..."
-												 linedBackground:AJLinedBackgroundTypeAnimated
-													   hideAfter:30.f];
+	if (self.items != nil) {
+		self.notificationView = [AJNotificationView showNoticeInView:self.view
+																type:AJNotificationTypeBlue
+															   title:@"NOW LOADING..."
+													 linedBackground:AJLinedBackgroundTypeAnimated
+														   hideAfter:30.f];
+	}
+	else {
+		self.items = [NSMutableArray array];
+	}
+	
+	NSInteger perPage = DribbbleShotsDefaultPerPage;
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		perPage = DribbbleShotsMaxPerPage;
+	}
 	
 	[DribbbleShot getShotsWithType:(DribbbleShotsType)[[NSUserDefaults standardUserDefaults] integerForKey:@"shots_selected_index"]
 							  page:(self.currentPage + 1)
-						   perPage:DribbbleShotsDefaultPerPage
+						   perPage:perPage
 							 block:^(NSArray *shots, BOOL isLast, NSInteger currentPage)
 	 {
 		 self.loading = NO;
@@ -211,7 +226,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-	if (self.collectionView.frame.size.height + self.collectionView.contentOffset.y > (self.collectionView.contentSize.height - 100.f)) {
+	if (self.collectionView.frame.size.height + self.collectionView.contentOffset.y > (self.collectionView.contentSize.height - 50.f)) {
 		if (self.refreshingBottom == NO) {
 			NSLog(@"bottom refresh");
 			self.refreshingBottom = YES;
