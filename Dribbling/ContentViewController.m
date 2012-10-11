@@ -130,6 +130,7 @@
 	
 	if (sender != nil) {
 		[self.items removeAllObjects];
+		self.items = nil;
 	}
 	
 	self.loading = YES;
