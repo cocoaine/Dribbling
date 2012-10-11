@@ -22,8 +22,8 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) AJNotificationView *notificationView;
-@property (nonatomic, assign) BOOL refreshingBottom;
 @property (nonatomic, assign) BOOL loading;
+@property (nonatomic, assign) BOOL refreshEnabled;
 
 - (void)requestShots:(id)sender;
 
@@ -38,8 +38,8 @@
 @synthesize refreshControl = _refreshControl;
 @synthesize activityIndicator = _activityIndicator;
 @synthesize notificationView = _notificationView;
-@synthesize refreshingBottom = _refreshingBottom;
 @synthesize loading = _loading;
+@synthesize refreshEnabled = _refreshEnabled;
 @synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -48,6 +48,7 @@
 		self.currentPage = 0;
 		self.clickedShotIndex = 0;
 		self.loading = NO;
+		self.refreshEnabled = NO;
     }
     return self;
 }
@@ -78,8 +79,8 @@
 	
 	self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 	self.activityIndicator.hidesWhenStopped = YES;
-	self.activityIndicator.center = self.view.center;
-	[self.view addSubview:self.activityIndicator];
+	self.activityIndicator.center = self.collectionView.center;
+	[self.collectionView addSubview:self.activityIndicator];
 	
 	self.refreshControl = [[UIRefreshControl alloc] init];
 	[self.refreshControl addTarget:self action:@selector(requestShots:) forControlEvents:UIControlEventValueChanged];
@@ -113,7 +114,6 @@
 	[self.refreshControl beginRefreshing];
 	
 	self.currentPage = 0;
-	self.refreshingBottom = NO;
 	self.loading = NO;
 	
 	[self requestShots:nil];
@@ -172,11 +172,8 @@
 		 [self.refreshControl endRefreshing];
 		 
 		 if (shots != nil) {
+			 self.refreshEnabled = YES;
 			 self.currentPage = currentPage;
-			 
-			 if (self.refreshingBottom) {
-				 self.refreshingBottom = NO;
-			 }
 			 
 			 [self.items addObjectsFromArray:shots];
 			 NSLog(@"self.items : %d", [self.items count]);
@@ -227,10 +224,8 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 	if (self.collectionView.frame.size.height + self.collectionView.contentOffset.y > (self.collectionView.contentSize.height - 50.f)) {
-		if (self.refreshingBottom == NO) {
+		if (self.refreshEnabled && self.loading == NO) {
 			NSLog(@"bottom refresh");
-			self.refreshingBottom = YES;
-			
 			[self requestShots:nil];
 		}
 	}
