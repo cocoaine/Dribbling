@@ -81,6 +81,7 @@
 	[self.imageViewButton addSubview:self.imageView];
 	
 	self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	self.activityIndicator.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin);
 	self.activityIndicator.hidesWhenStopped = YES;
 	self.activityIndicator.center = self.imageView.center;
 	[self.imageView addSubview:self.activityIndicator];

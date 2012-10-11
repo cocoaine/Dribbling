@@ -78,6 +78,7 @@
 	[self.view addSubview:self.collectionView];
 	
 	self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+	self.activityIndicator.autoresizingMask = (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin);
 	self.activityIndicator.hidesWhenStopped = YES;
 	self.activityIndicator.center = self.collectionView.center;
 	[self.collectionView addSubview:self.activityIndicator];
@@ -115,6 +116,7 @@
 	
 	self.currentPage = 0;
 	self.loading = NO;
+	self.refreshEnabled = NO;
 	
 	[self requestShots:nil];
 }
