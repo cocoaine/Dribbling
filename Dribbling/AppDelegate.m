@@ -93,6 +93,9 @@
 - (void)menuViewController:(MenuViewController *)controller didSelectIndex:(NSInteger)index {
 	NSLog(@"index : %d", index);
 	
+	DetailViewController *detailViewController = (DetailViewController *)self.viewController.rightViewController;
+	[detailViewController resetShotDetail];
+	
 	ContentViewController *contentViewController = (ContentViewController *)self.viewController.rootViewController;
 	[contentViewController setShotsType:index];
 	

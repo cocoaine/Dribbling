@@ -108,6 +108,13 @@
 								   }];
 }
 
+- (void)resetShotDetail {
+	self.imageView.image = nil;
+	
+	[self.shots removeAllObjects];
+	self.shots = nil;
+}
+
 - (void)clickImage:(id)sender {
 	if (self.imageView.image == nil) {
 		return;

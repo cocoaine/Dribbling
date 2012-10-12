@@ -18,6 +18,7 @@
 @property (nonatomic, assign) id <DetailViewControllerPhotoDataSource> photoDataSource;
 
 - (void)setShotDetail:(DribbbleShot *)shot;
+- (void)resetShotDetail;
 
 @end
 
