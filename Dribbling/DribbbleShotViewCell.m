@@ -15,7 +15,8 @@
 
 @interface DribbbleShotViewCell ()
 
-@property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end
 
@@ -33,6 +34,12 @@
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         self.imageView.clipsToBounds = YES;
         [self addSubview:self.imageView];
+		
+		self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+		self.titleLabel.font = [UIFont boldSystemFontOfSize:14.f];
+		self.titleLabel.textColor = [UIColor darkGrayColor];
+        self.titleLabel.numberOfLines = 0;
+		[self addSubview:self.titleLabel];
     }
     return self;
 }
@@ -50,6 +57,7 @@
     [super prepareForReuse];
 	
     self.imageView.image = nil;
+	self.titleLabel.text = nil;
 }
 
 - (void)layoutSubviews {
@@ -66,6 +74,15 @@
     CGFloat objectHeight = (CGFloat)shot.height;
     CGFloat scaledHeight = floorf(objectHeight / (objectWidth / width));
     self.imageView.frame = CGRectMake(left, top, width, scaledHeight);
+	
+	// Label
+    CGSize labelSize = CGSizeZero;
+    labelSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font
+								 constrainedToSize:CGSizeMake(width, INT_MAX)
+									 lineBreakMode:self.titleLabel.lineBreakMode];
+    top = self.imageView.frame.origin.y + self.imageView.frame.size.height + MARGIN;
+    
+    self.titleLabel.frame = CGRectMake(left, top, labelSize.width, labelSize.height);
 }
 
 - (void)fillViewWithObject:(id)object {
@@ -74,6 +91,8 @@
 	DribbbleShot *shot = (DribbbleShot *)object;
 	
 	[self.imageView setImageWithURL:shot.imageTeaserURL];
+	
+	self.titleLabel.text = shot.title;
 }
 
 + (CGFloat)heightForViewWithObject:(id)object inColumnWidth:(CGFloat)columnWidth {
@@ -90,7 +109,14 @@
     CGFloat scaledHeight = floorf(objectHeight / (objectWidth / width));
     height += scaledHeight;
 	
-	height += MARGIN;
+	// Label
+    NSString *title = shot.title;
+    CGSize labelSize = CGSizeZero;
+    UIFont *labelFont = [UIFont boldSystemFontOfSize:14.0];
+    labelSize = [title sizeWithFont:labelFont constrainedToSize:CGSizeMake(width, INT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    height += labelSize.height;
+    
+    height += MARGIN;
     
     return height;
 }

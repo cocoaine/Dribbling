@@ -26,6 +26,7 @@
 @property (nonatomic, assign) BOOL refreshEnabled;
 
 - (void)requestShots:(id)sender;
+- (void)mergeShots:(NSArray *)shots;
 
 @end
 
@@ -180,7 +181,13 @@
 			 self.refreshEnabled = YES;
 			 self.currentPage = currentPage;
 			 
-			 [self.items addObjectsFromArray:shots];
+			 if (self.items != nil && [self.items count] > 0) {
+				 [self mergeShots:shots];
+			 }
+			 else {
+				 [self.items addObjectsFromArray:shots];
+			 }
+			 
 			 NSLog(@"self.items : %d", [self.items count]);
 			 
 			 [self.collectionView reloadData];
@@ -190,6 +197,28 @@
 			 }
 		 }
 	 }];
+}
+
+- (void)mergeShots:(NSArray *)shots {
+	NSMutableArray *result = [NSMutableArray array];
+	
+	for (DribbbleShot *newShot in shots) {
+		BOOL isDuplicate = NO;
+		for (DribbbleShot *currentShot in self.items) {
+			if (newShot.shotID == currentShot.shotID) {
+				isDuplicate = YES;
+				break;
+			}
+		}
+		
+		if (isDuplicate == NO) {
+			[result addObject:newShot];
+		}
+	}
+	
+	if ([result count] > 0) {
+		[self.items addObjectsFromArray:result];
+	}
 }
 
 - (NSInteger)numberOfViewsInCollectionView:(PSCollectionView *)collectionView {

@@ -14,6 +14,7 @@
 
 @interface DetailViewController ()
 
+@property (nonatomic, assign) NSInteger currentShotID;
 @property (nonatomic, strong) NSMutableArray *shots;
 @property (nonatomic, strong) UIButton *imageViewButton;
 @property (nonatomic, strong) UIImageView *imageView;
@@ -25,6 +26,7 @@
 
 @implementation DetailViewController
 
+@synthesize currentShotID = _currentShotID;
 @synthesize shots = _shots;
 @synthesize imageViewButton = _imageViewButton;
 @synthesize imageView = _imageView;
@@ -36,6 +38,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+		self.currentShotID = -1;
 		self.shots = [NSMutableArray array];
     }
     return self;
@@ -94,6 +97,8 @@
 }
 
 - (void)setShotDetail:(DribbbleShot *)shot {
+	self.currentShotID = shot.shotID;
+	
 	self.imageView.image = nil;
 	
 	[self.activityIndicator startAnimating];
@@ -113,10 +118,12 @@
 	
 	[self.shots removeAllObjects];
 	self.shots = nil;
+	
+	self.currentShotID = -1;
 }
 
 - (void)clickImage:(id)sender {
-	if (self.imageView.image == nil) {
+	if (self.imageView.image == nil || self.currentShotID == -1) {
 		return;
 	}
 	
@@ -126,7 +133,12 @@
 	
 	NSArray *tmpShots = [self.photoDataSource shotsForDetailViewController:self];
 	for (DribbbleShot *shot in tmpShots) {
-		[self.shots addObject:[MWPhoto photoWithURL:shot.imageURL]];
+		if (self.currentShotID == shot.shotID) {
+			[self.shots addObject:[MWPhoto photoWithImage:self.imageView.image]];
+		}
+		else {
+			[self.shots addObject:[MWPhoto photoWithURL:shot.imageURL]];
+		}
 	}
 	
 	MWPhotoBrowser *photoBrowser = [[MWPhotoBrowser alloc] initWithDelegate:self];
