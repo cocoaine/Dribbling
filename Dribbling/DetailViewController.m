@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *shots;
 @property (nonatomic, strong) UIButton *imageViewButton;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImage *originImage;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 
 - (void)clickImage:(id)sender;
@@ -30,6 +31,7 @@
 @synthesize shots = _shots;
 @synthesize imageViewButton = _imageViewButton;
 @synthesize imageView = _imageView;
+@synthesize originImage = _originImage;
 @synthesize activityIndicator = _activityIndicator;
 @synthesize photoDataSource = _photoDataSource;
 
@@ -106,6 +108,8 @@
 	[self.imageView setImageWithURLRequest:[NSURLRequest requestWithURL:shot.imageURL]
 						  placeholderImage:nil
 								   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+									   self.originImage = image;
+									   
 									   [self.activityIndicator stopAnimating];
 								   }
 								   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -123,7 +127,7 @@
 }
 
 - (void)clickImage:(id)sender {
-	if (self.imageView.image == nil || self.currentShotID == -1) {
+	if (self.currentShotID == -1) {
 		return;
 	}
 	
@@ -133,12 +137,9 @@
 	
 	NSArray *tmpShots = [self.photoDataSource shotsForDetailViewController:self];
 	for (DribbbleShot *shot in tmpShots) {
-		if (self.currentShotID == shot.shotID) {
-			[self.shots addObject:[MWPhoto photoWithImage:self.imageView.image]];
-		}
-		else {
-			[self.shots addObject:[MWPhoto photoWithURL:shot.imageURL]];
-		}
+		MWPhoto *photoset = [MWPhoto photoWithURL:shot.imageURL];
+		photoset.caption = shot.title;
+		[self.shots addObject:photoset];
 	}
 	
 	MWPhotoBrowser *photoBrowser = [[MWPhotoBrowser alloc] initWithDelegate:self];
